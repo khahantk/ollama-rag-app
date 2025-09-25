@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  chromadb:
+    image: chromadb/chroma
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./chroma-data:/chroma/chroma
+  ollama:
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ./ollama:/root/.ollama
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - chromadb
+      - ollama
