@@ -79,6 +79,8 @@ yarn dev
 
 ```
 Frontend will run at: 👉 http://localhost:4000
+### Screenshots
+![RAG Demo](https://raw.githubusercontent.com/khahantk/ollama-rag-app/refs/heads/master/frontend/public/rag-demo.png)
 
 ## 📖 Roadmap
 - Add authentication
