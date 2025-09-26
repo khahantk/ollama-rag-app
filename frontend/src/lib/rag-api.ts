@@ -1,5 +1,5 @@
 export async function askQuestion(question: string) {
-  const res = await fetch("http://localhost:3000/rag/ask", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/rag/ask`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ question }),

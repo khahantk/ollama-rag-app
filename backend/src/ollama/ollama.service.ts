@@ -1,14 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { Ollama } from '@langchain/ollama';
+import { ConfigService } from "@nestjs/config";
 
 @Injectable()
 export class OllamaService {
   private model: Ollama;
 
-  constructor() {
+  constructor(private configService: ConfigService) {
     this.model = new Ollama({
-      baseUrl: process.env.OLLAMA_URL || 'http://localhost:11434',
-      model: process.env.OLLAMA_MODEL || 'llama3',
+      baseUrl: this.configService.get('OLLAMA_URL'), // process.env.OLLAMA_URL || 'http://localhost:11434',
+      model: this.configService.get('OLLAMA_MODEL') || 'llama3',
     });
   }
 
